@@ -63,7 +63,7 @@ public class MainActivity extends Activity implements OnClickListener, SpeechSyn
     private static final int UI_CHANGE_INPUT_TEXT_SELECTION = 1;
     private static final int UI_CHANGE_SYNTHES_TEXT_SELECTION = 2;
     private static final String TAG = "MainActivity";
-
+private Button btn_record;
     /*
      * @param savedInstanceState
      */
@@ -146,6 +146,14 @@ public class MainActivity extends Activity implements OnClickListener, SpeechSyn
     }
 
     private void initialView() {
+        btn_record = (Button) findViewById(R.id.record);
+        btn_record.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ActivityMain.class);
+                startActivity(intent);
+            }
+        });
         this.mSpeak = (Button) this.findViewById(R.id.speak);
         this.mSpeak.setOnClickListener(this);
         this.mPause = (Button) this.findViewById(R.id.pause);
